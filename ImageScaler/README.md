@@ -3,9 +3,9 @@ Image Scaler
 
 It is a utility for scaling of the images. Using this utility images can be scaled up or down in terms of their width, height and quality.
 
-**Jar to be used :** 
+**Note :** Use ImageScaler-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 
-ImageScaler-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+![UI](https://raw.github.com/hemant-kumar/leadtheworld/master/ImageScaler/UI.png)
 
 **Retain original width and height**
 
