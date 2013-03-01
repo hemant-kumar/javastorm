@@ -18,11 +18,12 @@ import com.leadtheworld.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for reading a file from HDFS and writing it to local file system
+ * 
  * @author Hemant Kumar
- *
+ * @version 1.0 Dated: 01/03/2013
  */
-public class HdfsFileReader {
-
+public class HdfsFileReader 
+{
 	FileSystem fileSystem;
 
 	public HdfsFileReader() throws IOException {

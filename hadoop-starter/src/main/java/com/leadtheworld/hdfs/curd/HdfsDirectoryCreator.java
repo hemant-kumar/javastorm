@@ -13,8 +13,9 @@ import com.leadtheworld.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for creating a new directory in HDFS 
+ * 
  * @author Hemant Kumar
- *
+ * @version 1.0 Dated: 01/03/2013
  */
 public class HdfsDirectoryCreator {
 

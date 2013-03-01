@@ -12,14 +12,14 @@ import org.apache.hadoop.fs.Path;
 import com.leadtheworld.hdfs.common.PathResolver;
 import com.leadtheworld.hdfs.common.PropertyLoader;
 
-
 /**
  * This class is intended for listing all files in the specified HDFS dir 
+ * 
  * @author Hemant Kumar
- *
+ * @version 1.0 Dated: 01/03/2013
  */
-public class HdfsFileLister {
-
+public class HdfsFileLister 
+{
 	private FileSystem fileSystem;
 
 	public HdfsFileLister() throws IOException {

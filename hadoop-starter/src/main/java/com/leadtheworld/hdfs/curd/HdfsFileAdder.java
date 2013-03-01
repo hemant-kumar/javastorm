@@ -16,11 +16,12 @@ import com.leadtheworld.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for adding a new file to HDFS 
+ * 
  * @author Hemant Kumar
- *
+ * @version 1.0 Dated: 01/03/2013
  */
-public class HdfsFileAdder {
-
+public class HdfsFileAdder 
+{
 	FileSystem fileSystem;
 
 	public HdfsFileAdder() throws IOException {
