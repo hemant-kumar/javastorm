@@ -1,4 +1,4 @@
-package common;
+package com.leadtheworld.common;
 
 import java.awt.Image;
 import java.io.BufferedInputStream;
@@ -10,8 +10,9 @@ import javax.imageio.ImageIO;
 
 /**
  * This class is intended for providing the owner logo
+ * 
  * @author Hemant Kumar
- *
+ * @version 1.0 Dated: 01/03/2013
  */
 public class OwnerDetails
 {

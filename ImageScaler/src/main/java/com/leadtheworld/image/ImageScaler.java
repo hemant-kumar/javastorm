@@ -1,4 +1,4 @@
-package image;
+package com.leadtheworld.image;
 
 import java.awt.Checkbox;
 import java.awt.Choice;
@@ -32,15 +32,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import com.leadtheworld.common.OwnerDetails;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGEncodeParam;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
-import common.OwnerDetails;
 
 /**
  * This class is intended for scaling of images 
+ * 
  * @author Hemant Kumar
- *
+ * @version 1.0 Dated: 01/03/2013
  */
 public class ImageScaler extends WindowAdapter implements ActionListener, ItemListener
 {
@@ -106,7 +107,7 @@ public class ImageScaler extends WindowAdapter implements ActionListener, ItemLi
 		System.exit(0);
 	}
 
-	public void launchFrame() {
+	private void launchFrame() {
 		frame.setBounds(550,140,350,440);
 		frame.setCursor(new Cursor(12));
 		frame.setIconImage(OwnerDetails.getOwnerLogo());
@@ -230,7 +231,7 @@ public class ImageScaler extends WindowAdapter implements ActionListener, ItemLi
 		}
 	}
 
-	public void scaleImage(String src,String dest) {
+	private void scaleImage(String src,String dest) {
 		try {
 			FileInputStream fis = new FileInputStream(new File(src));
 			InputStream is = new BufferedInputStream(fis);
