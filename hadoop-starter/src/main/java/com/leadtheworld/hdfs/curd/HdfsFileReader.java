@@ -1,7 +1,5 @@
-package hdfs.curd;
+package com.leadtheworld.hdfs.curd;
 
-import hdfs.common.PathResolver;
-import hdfs.common.PropertyLoader;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -14,6 +12,9 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+
+import com.leadtheworld.hdfs.common.PathResolver;
+import com.leadtheworld.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for reading a file from HDFS and writing it to local file system

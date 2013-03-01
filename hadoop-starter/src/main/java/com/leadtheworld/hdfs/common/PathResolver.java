@@ -1,4 +1,4 @@
-package hdfs.common;
+package com.leadtheworld.hdfs.common;
 
 /**
  * This class is intended for resolving the hdfs path to fully qualified hdfs path 
