@@ -1,4 +1,4 @@
-package com.leadtheworld.image;
+package com.javastorm.image;
 
 import java.awt.Checkbox;
 import java.awt.Choice;
@@ -32,7 +32,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-import com.leadtheworld.common.OwnerDetails;
+import com.javastorm.common.OwnerDetails;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGEncodeParam;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;

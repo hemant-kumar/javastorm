@@ -1,4 +1,4 @@
-package com.leadtheworld.common;
+package com.javastorm.common;
 
 import java.awt.Image;
 import java.io.BufferedInputStream;
