@@ -1,8 +1,8 @@
-package com.leadtheworld.test.hash;
+package com.javastorm.test.hash;
 
 import java.util.Scanner;
 
-import com.leadtheworld.security.hash.MD5Hasher;
+import com.javastorm.security.hash.MD5Hasher;
 
 /**
  * The class is intended for depicting the usage of MD5Hasher.

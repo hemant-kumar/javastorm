@@ -1,9 +1,9 @@
-package com.leadtheworld.test.symmetric;
+package com.javastorm.test.symmetric;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import com.leadtheworld.security.symmetric.SecureDES;
+import com.javastorm.security.symmetric.SecureDES;
 
 /**
  * The SecureDESTest class is intended for depicting the usage of SecureDES class.   

@@ -1,4 +1,4 @@
-package com.leadtheworld.security.hash;
+package com.javastorm.security.hash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
