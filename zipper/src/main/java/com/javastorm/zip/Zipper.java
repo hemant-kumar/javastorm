@@ -1,4 +1,4 @@
-package com.leadtheworld.zip;
+package com.javastorm.zip;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import com.leadtheworld.common.FileListGetter;
+import com.javastorm.common.FileListGetter;
 
 /**
  * This class is intended for zipping of files.

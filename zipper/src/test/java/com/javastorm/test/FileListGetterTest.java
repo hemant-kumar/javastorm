@@ -1,11 +1,11 @@
-package com.leadtheworld.test;
+package com.javastorm.test;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-import com.leadtheworld.common.FileListGetter;
+import com.javastorm.common.FileListGetter;
 
 /**
  * This class is intended for depicting the usage of FileListGetter class

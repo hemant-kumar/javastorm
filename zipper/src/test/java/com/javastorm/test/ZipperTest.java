@@ -1,8 +1,8 @@
-package com.leadtheworld.test;
+package com.javastorm.test;
 
 import java.util.Scanner;
 
-import com.leadtheworld.zip.Zipper;
+import com.javastorm.zip.Zipper;
 
 /**
  * This class is intended for depicting the usage of Zipper class

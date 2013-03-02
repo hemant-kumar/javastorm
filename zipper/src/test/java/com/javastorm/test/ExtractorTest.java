@@ -1,9 +1,9 @@
-package com.leadtheworld.test;
+package com.javastorm.test;
 
 import java.io.File;
 import java.util.Scanner;
 
-import com.leadtheworld.zip.Extractor;
+import com.javastorm.zip.Extractor;
 
 /**
  * This class is intended for depicting the usage of Extractor class
