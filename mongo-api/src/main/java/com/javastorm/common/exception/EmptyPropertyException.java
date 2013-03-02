@@ -1,4 +1,4 @@
-package com.leadtheworld.common.exception;
+package com.javastorm.common.exception;
 
 /**
  * The EmptyPropertyException class indicates that no value  

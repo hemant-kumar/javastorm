@@ -1,18 +1,18 @@
-package com.leadtheworld.mongo.function.spi;
+package com.javastorm.mongo.function.spi;
 
 import java.util.Collection;
 
-import com.leadtheworld.mongo.domain.MongoEntity;
-import com.leadtheworld.mongo.exception.MongoDeleteException;
-import com.leadtheworld.mongo.exception.MongoIdMissingException;
-import com.leadtheworld.mongo.exception.MongoUpdateException;
+import com.javastorm.mongo.domain.MongoEntity;
+import com.javastorm.mongo.exception.MongoDeleteException;
+import com.javastorm.mongo.exception.MongoIdMissingException;
+import com.javastorm.mongo.exception.MongoUpdateException;
 
 
 /**
  * This MongoFunction interface is responsible for all the database layer interaction
  * with MongoDB. It provides functions for performing CURD operations on MongoDB.
  * 
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public interface MongoFunction {

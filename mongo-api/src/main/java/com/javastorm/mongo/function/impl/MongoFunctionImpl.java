@@ -1,25 +1,27 @@
-package com.leadtheworld.mongo.function.impl;
+package com.javastorm.mongo.function.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang.StringUtils;
+
 import net.sf.json.JSONObject;
 
-import com.leadtheworld.common.exception.EmptyPropertyException;
-import com.leadtheworld.common.exception.MissingPropertyException;
-import com.leadtheworld.common.exception.MultipleFileFoundException;
-import com.leadtheworld.mongo.domain.MongoEntity;
-import com.leadtheworld.mongo.domain.MongoQueryInfo;
-import com.leadtheworld.mongo.exception.MongoDeleteException;
-import com.leadtheworld.mongo.exception.MongoFileNotFoundException;
-import com.leadtheworld.mongo.exception.MongoIdMissingException;
-import com.leadtheworld.mongo.exception.MongoUpdateException;
-import com.leadtheworld.mongo.factory.impl.SimpleMongoFactory;
-import com.leadtheworld.mongo.function.spi.MongoFunction;
-import com.leadtheworld.mongo.info.MongoProperties;
+import org.apache.commons.lang.StringUtils;
+
+import com.javastorm.common.exception.EmptyPropertyException;
+import com.javastorm.common.exception.MissingPropertyException;
+import com.javastorm.common.exception.MultipleFileFoundException;
+import com.javastorm.mongo.domain.MongoEntity;
+import com.javastorm.mongo.domain.MongoQueryInfo;
+import com.javastorm.mongo.exception.MongoDeleteException;
+import com.javastorm.mongo.exception.MongoFileNotFoundException;
+import com.javastorm.mongo.exception.MongoIdMissingException;
+import com.javastorm.mongo.exception.MongoUpdateException;
+import com.javastorm.mongo.factory.impl.SimpleMongoFactory;
+import com.javastorm.mongo.function.spi.MongoFunction;
+import com.javastorm.mongo.info.MongoProperties;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -33,7 +35,7 @@ import com.mongodb.util.JSON;
  * This MongoFunctionImpl class is responsible for all the database layer interaction
  * with MongoDB. It provides functions for performing CURD operations on MongoDB.
  * 
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public class MongoFunctionImpl implements MongoFunction 

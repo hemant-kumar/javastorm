@@ -1,4 +1,4 @@
-package com.leadtheworld.mongo.domain;
+package com.javastorm.mongo.domain;
 
 /**
  * The MongoEntity class is required to be extended by all 

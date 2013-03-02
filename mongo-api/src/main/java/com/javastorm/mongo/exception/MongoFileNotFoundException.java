@@ -1,4 +1,4 @@
-package com.leadtheworld.mongo.exception;
+package com.javastorm.mongo.exception;
 
 /**
  * The MongoFileNotFoundException class indicates that  

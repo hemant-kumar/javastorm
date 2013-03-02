@@ -1,4 +1,4 @@
-package com.leadtheworld.common.property;
+package com.javastorm.common.property;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
-import com.leadtheworld.common.exception.EmptyPropertyException;
-import com.leadtheworld.common.exception.MissingPropertyException;
+import com.javastorm.common.exception.EmptyPropertyException;
+import com.javastorm.common.exception.MissingPropertyException;
 
 /**
  * The PropertyLoader class is used for loading properties from various files 

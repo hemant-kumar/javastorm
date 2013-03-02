@@ -1,4 +1,4 @@
-package com.leadtheworld.mongo.factory.spi;
+package com.javastorm.mongo.factory.spi;
 
 import com.mongodb.DB;
 import com.mongodb.Mongo;
@@ -7,7 +7,7 @@ import com.mongodb.Mongo;
  * This MongoFactory interface is responsible for providing Mongo 
  * instance, DB instance as requested.
  * 
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public interface MongoFactory

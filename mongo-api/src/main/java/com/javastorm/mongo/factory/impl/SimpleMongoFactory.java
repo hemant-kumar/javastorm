@@ -1,13 +1,13 @@
-package com.leadtheworld.mongo.factory.impl;
+package com.javastorm.mongo.factory.impl;
 
 import java.io.IOException;
 
-import com.leadtheworld.common.exception.EmptyPropertyException;
-import com.leadtheworld.common.exception.MissingPropertyException;
-import com.leadtheworld.common.exception.MultipleFileFoundException;
-import com.leadtheworld.mongo.exception.MongoFileNotFoundException;
-import com.leadtheworld.mongo.factory.spi.MongoFactory;
-import com.leadtheworld.mongo.info.MongoProperties;
+import com.javastorm.common.exception.EmptyPropertyException;
+import com.javastorm.common.exception.MissingPropertyException;
+import com.javastorm.common.exception.MultipleFileFoundException;
+import com.javastorm.mongo.exception.MongoFileNotFoundException;
+import com.javastorm.mongo.factory.spi.MongoFactory;
+import com.javastorm.mongo.info.MongoProperties;
 import com.mongodb.DB;
 import com.mongodb.Mongo;
 import com.mongodb.MongoException;
@@ -17,7 +17,7 @@ import com.mongodb.ReadPreference;
  * This SimpleMongoFactory interface is responsible for providing 
  * Mongo instance, DB instance as requested.
  * 
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public class SimpleMongoFactory implements MongoFactory

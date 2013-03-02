@@ -1,4 +1,4 @@
-package com.leadtheworld.mongo.exception;
+package com.javastorm.mongo.exception;
 
 /**
  * The MongoDeleteException class indicates that an exception

@@ -1,13 +1,13 @@
-package com.leadtheworld.helper;
+package com.javastorm.helper;
 
 import java.util.ArrayList;
 
-import com.leadtheworld.mongo.domain.MongoEntity;
+import com.javastorm.mongo.domain.MongoEntity;
 
 /**
  * This TestEntity class is extending MongoEntity and also defining its business requirements fields
  * 
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public class TestEntity extends MongoEntity 

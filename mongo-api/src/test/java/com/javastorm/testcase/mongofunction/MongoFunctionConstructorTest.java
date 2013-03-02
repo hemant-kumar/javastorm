@@ -1,21 +1,22 @@
-package com.leadtheworld.testcase.mongofunction;
+package com.javastorm.testcase.mongofunction;
 
 import java.io.IOException;
 
-import com.leadtheworld.common.exception.EmptyPropertyException;
-import com.leadtheworld.common.exception.MissingPropertyException;
-import com.leadtheworld.common.exception.MultipleFileFoundException;
-import com.leadtheworld.mongo.exception.MongoFileNotFoundException;
-import com.leadtheworld.mongo.function.impl.MongoFunctionImpl;
-import com.mongodb.MongoException;
 import junit.framework.TestCase;
+
+import com.javastorm.common.exception.EmptyPropertyException;
+import com.javastorm.common.exception.MissingPropertyException;
+import com.javastorm.common.exception.MultipleFileFoundException;
+import com.javastorm.mongo.exception.MongoFileNotFoundException;
+import com.javastorm.mongo.function.impl.MongoFunctionImpl;
+import com.mongodb.MongoException;
 
 /**
  * This MongoFunctionConstructorTest class is for testing negative scenarios.
  * All the cases will run to success only in happy scenario. Any change like
  * mongo file at multiple location or missing property will lead to failure
  *  
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public class MongoFunctionConstructorTest extends TestCase {

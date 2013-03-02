@@ -1,4 +1,4 @@
-package com.leadtheworld.mongo.info;
+package com.javastorm.mongo.info;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,13 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-import com.leadtheworld.common.exception.EmptyPropertyException;
-import com.leadtheworld.common.exception.MissingPropertyException;
-import com.leadtheworld.common.exception.MultipleFileFoundException;
-import com.leadtheworld.common.file.FileFinder;
-import com.leadtheworld.common.property.PropertyLoader;
-import com.leadtheworld.mongo.exception.MongoFileNotFoundException;
+import com.javastorm.common.exception.EmptyPropertyException;
+import com.javastorm.common.exception.MissingPropertyException;
+import com.javastorm.common.exception.MultipleFileFoundException;
+import com.javastorm.common.file.FileFinder;
+import com.javastorm.common.property.PropertyLoader;
+import com.javastorm.mongo.exception.MongoFileNotFoundException;
 import com.mongodb.ServerAddress;
 
 /**

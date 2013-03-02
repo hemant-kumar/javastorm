@@ -1,4 +1,4 @@
-package com.leadtheworld.common.exception;
+package com.javastorm.common.exception;
 
 /**
  * The MissingPropertyException class indicates that specified  

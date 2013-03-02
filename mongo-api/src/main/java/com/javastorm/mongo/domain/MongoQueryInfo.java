@@ -1,4 +1,4 @@
-package com.leadtheworld.mongo.domain;
+package com.javastorm.mongo.domain;
 
 import java.util.List;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * This MongoQueryInfo class contains all the info related to any mongo query.
  * 
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public class MongoQueryInfo 

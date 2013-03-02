@@ -1,18 +1,18 @@
-package com.leadtheworld.testsuite;
-
-import com.leadtheworld.testcase.mongofunction.MongoFunctionConstructorTest;
-import com.leadtheworld.testcase.mongofunction.MongoFunctionDeleteTest;
-import com.leadtheworld.testcase.mongofunction.MongoFunctionFindTest;
-import com.leadtheworld.testcase.mongofunction.MongoFunctionSaveTest;
-import com.leadtheworld.testcase.mongofunction.MongoFunctionUpdateTest;
+package com.javastorm.testsuite;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
+import com.javastorm.testcase.mongofunction.MongoFunctionConstructorTest;
+import com.javastorm.testcase.mongofunction.MongoFunctionDeleteTest;
+import com.javastorm.testcase.mongofunction.MongoFunctionFindTest;
+import com.javastorm.testcase.mongofunction.MongoFunctionSaveTest;
+import com.javastorm.testcase.mongofunction.MongoFunctionUpdateTest;
+
 /**
  * This MongoFunctionTestSuite class bundles all the Test classes
  * 
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public class MongoFunctionTestSuite 

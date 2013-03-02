@@ -1,26 +1,26 @@
-package com.leadtheworld.testcase.mongofunction;
+package com.javastorm.testcase.mongofunction;
 
 
 import java.io.IOException;
 import java.util.List;
 
-import com.leadtheworld.common.exception.EmptyPropertyException;
-import com.leadtheworld.common.exception.MissingPropertyException;
-import com.leadtheworld.common.exception.MultipleFileFoundException;
-import com.leadtheworld.helper.TestEntity;
-import com.leadtheworld.mongo.domain.MongoQueryInfo;
-import com.leadtheworld.mongo.exception.MongoFileNotFoundException;
-import com.leadtheworld.mongo.exception.MongoUpdateException;
-import com.leadtheworld.mongo.function.impl.MongoFunctionImpl;
-import com.leadtheworld.mongo.function.spi.MongoFunction;
-import com.mongodb.MongoException;
-
 import junit.framework.TestCase;
+
+import com.javastorm.common.exception.EmptyPropertyException;
+import com.javastorm.common.exception.MissingPropertyException;
+import com.javastorm.common.exception.MultipleFileFoundException;
+import com.javastorm.helper.TestEntity;
+import com.javastorm.mongo.domain.MongoQueryInfo;
+import com.javastorm.mongo.exception.MongoFileNotFoundException;
+import com.javastorm.mongo.exception.MongoUpdateException;
+import com.javastorm.mongo.function.impl.MongoFunctionImpl;
+import com.javastorm.mongo.function.spi.MongoFunction;
+import com.mongodb.MongoException;
 
 /**
  * This MongoFunctionUpdateTest class is responsible for testing of update scenario of MongoFunction
  * 
- * @author hemant singh
+ * @author Hemant Kumar
  * @version 1.0 Dated: 13/01/2013
  */
 public class MongoFunctionUpdateTest extends TestCase {
