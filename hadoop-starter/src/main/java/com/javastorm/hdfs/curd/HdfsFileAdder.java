@@ -1,4 +1,4 @@
-package com.leadtheworld.hdfs.curd;
+package com.javastorm.hdfs.curd;
 
 
 import java.io.File;
@@ -11,8 +11,8 @@ import org.apache.hadoop.fs.FSDataOutputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 
-import com.leadtheworld.hdfs.common.PathResolver;
-import com.leadtheworld.hdfs.common.PropertyLoader;
+import com.javastorm.hdfs.common.PathResolver;
+import com.javastorm.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for adding a new file to HDFS 

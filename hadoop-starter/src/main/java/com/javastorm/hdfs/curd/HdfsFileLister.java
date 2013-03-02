@@ -1,4 +1,4 @@
-package com.leadtheworld.hdfs.curd;
+package com.javastorm.hdfs.curd;
 
 
 import java.io.IOException;
@@ -9,8 +9,8 @@ import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 
-import com.leadtheworld.hdfs.common.PathResolver;
-import com.leadtheworld.hdfs.common.PropertyLoader;
+import com.javastorm.hdfs.common.PathResolver;
+import com.javastorm.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for listing all files in the specified HDFS dir 

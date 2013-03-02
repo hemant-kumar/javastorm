@@ -1,8 +1,8 @@
-package com.leadtheworld.test.hdfs;
+package com.javastorm.test.hdfs;
 
 import java.util.Scanner;
 
-import com.leadtheworld.hdfs.common.PathResolver;
+import com.javastorm.hdfs.common.PathResolver;
 
 /**
  * This class is intended for depicting the usage of PathResolver  

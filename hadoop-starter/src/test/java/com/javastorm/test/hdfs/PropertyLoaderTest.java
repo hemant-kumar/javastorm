@@ -1,6 +1,6 @@
-package com.leadtheworld.test.hdfs;
+package com.javastorm.test.hdfs;
 
-import com.leadtheworld.hdfs.common.PropertyLoader;
+import com.javastorm.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for depicting the usage of PropertyLoader

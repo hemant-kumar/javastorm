@@ -1,4 +1,4 @@
-package com.leadtheworld.hdfs.common;
+package com.javastorm.hdfs.common;
 
 import java.io.IOException;
 import java.util.Properties;
