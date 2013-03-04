@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.util.ArrayList;
 
+import com.javastorm.windows.model.ComputerTimeZone;
+import com.javastorm.windows.model.DiskDrive;
 import com.javastorm.windows.model.DvdDrive;
 import com.javastorm.windows.model.NotWorkingDevice;
 import com.javastorm.windows.model.PluggedUsbDevice;
@@ -20,6 +23,15 @@ import com.javastorm.windows.model.PointingDevice;
 public class WindowsMachine 
 {
 	/**
+	 * This function provides the IP Address of the System 
+	 * @return IP Address
+	 * @throws Exception
+	 */
+	public static String getIpAddress() throws Exception {
+		return InetAddress.getLocalHost().getHostAddress();
+	}
+
+	/**
 	 * This function provides MAC Address of the System 
 	 * @return MAC Address
 	 * @throws Exception
@@ -28,8 +40,8 @@ public class WindowsMachine
 		File file = File.createTempFile("javastorm",".vbs");
 		file.deleteOnExit();
 		FileWriter fileWriter = new FileWriter(file);
-		String str = "Set objWMIService = GetObject(\"winmgmts:\\\\.\\root\\cimv2\")\nSet colItems = objWMIService.ExecQuery " +
-				"_ \n   (\"Select * from Win32_NetworkAdapterConfiguration\") \nFor Each objItem in colItems \n" +
+		String str = "Set objWMIService = GetObject(\"winmgmts:\\\\.\\root\\cimv2\") \n Set colItems = objWMIService.ExecQuery " +
+				"_ \n   (\"Select * from Win32_NetworkAdapterConfiguration\") \n For Each objItem in colItems \n " +
 				"if objItem.IPEnabled = 0 And objItem.ServiceName <> \"VMnetAdapter\" And isNull(objItem.MACAddress) = 0 " +
 				"Then \n    Wscript.Echo objItem.MACAddress   \n   End if  \nNext \n";
 		fileWriter.write(str);
@@ -610,4 +622,236 @@ public class WindowsMachine
 		return name;
 	}
 
+	/**
+	 * This function provides the Time Zone
+	 * @return Time Zone
+	 * @throws Exception
+	 */
+	public static ComputerTimeZone getTimeZone() throws Exception {
+		ComputerTimeZone timeZone = new ComputerTimeZone();
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:\\\\.\\root\\cimv2\") \n " +
+					 "Set colItems = objWMIService.ExecQuery(\"Select * from Win32_TimeZone\") \n " +
+					 "For Each objItem in colItems \n Wscript.Echo objItem.Description \n " +
+					 "Wscript.Echo objItem.DaylightName \n Wscript.Echo objItem.StandardName \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = br.readLine();
+		if(result != null) {
+			timeZone.setDescription(result.trim());
+			result = br.readLine();
+			timeZone.setDaylightName(result.trim());
+			result = br.readLine();
+			timeZone.setStandardName(result.trim());
+		}
+		br.close();
+		return timeZone;
+	}
+
+	/**
+	 * This function provides the Screen Resolution 
+	 * @return Screen Resolution
+	 * @throws Exception
+	 */
+	public static String getScreenResolution() throws Exception {
+		String res = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:\\\\.\\root\\cimv2\") \n " +
+					 "Set colItems = objWMIService.ExecQuery(\"Select * from Win32_DesktopMonitor\") \n " +
+					 "For Each objItem in colItems \n Wscript.Echo objItem.ScreenWidth & \" * \" & " +
+					 "objItem.ScreenHeight \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			res = result.trim();
+		input.close();
+		return res;
+	}
+
+	/**
+	 * This function provides the information related to Disk Drives
+	 * @return Disk Drive Info
+	 * @throws Exception
+	 */
+	public static ArrayList<DiskDrive> getDiskDriveInfo() throws Exception {
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root" +
+					 "\\cimv2\") \n Set colDisks = objWMIService.ExecQuery(\"Select * from Win32_LogicalDisk\") \n " +
+					 "For Each objDisk in colDisks \n Wscript.Echo objDisk.DeviceID \n " +
+					 "Select Case objDisk.DriveType \n Case 1 Wscript.Echo \"Unknown\" \n " +
+					 "Case 2 Wscript.Echo \"Removable drive.\" \n Case 3 Wscript.Echo \"Local hard disk.\" \n " +
+					 "Case 4 Wscript.Echo \"Network disk.\" \n Case 5 Wscript.Echo \"Compact disk.\" \n " +
+					 "Case 6 Wscript.Echo \"RAM disk.\" \n Case Else Wscript.Echo \"Unknown\" \n End Select \n " +
+					 "Wscript.Echo objDisk.Name \n Wscript.Echo objDisk.FileSystem \n " +
+					 "Wscript.Echo objDisk.Size \n Wscript.Echo objDisk.FreeSpace \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		ArrayList<DiskDrive> list = new ArrayList<DiskDrive>();
+		String result = br.readLine();
+		while(result != null) {
+			DiskDrive drive = new DiskDrive();
+			drive.setDeviceID(result.trim());
+			result = br.readLine();
+			drive.setType(result.trim());
+			result = br.readLine();
+			drive.setName(result.trim());
+			result = br.readLine();
+			
+			drive.setFileSystem(result.trim());
+			result = br.readLine();
+			try {
+				drive.setDiskSize(Long.parseLong(result.trim()));
+			}
+			catch (Exception e) { }
+			result = br.readLine();
+			try {
+				drive.setFreeDiskSpace(Long.parseLong(result.trim()));
+			}
+			catch (Exception e) { }
+			list.add(drive);
+			result = br.readLine();
+		}
+		br.close();
+		return list;
+	}
+	
+	/**
+	 * This function provides the Service Pack Version 
+	 * @return Service Pack Version
+	 * @throws Exception
+	 */
+	public static String getServicePackVersion() throws Exception {
+		String res = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n" +
+					 "Set colOperatingSystems = objWMIService.ExecQuery(\"Select * from Win32_OperatingSystem\") \n" +
+					 "For Each objOperatingSystem in colOperatingSystems \n Wscript.Echo " +
+					 "objOperatingSystem.ServicePackMajorVersion & \".\" & " +
+					 "objOperatingSystem.ServicePackMinorVersion Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			res = result.trim();
+		input.close();
+		return res;
+	}
+
+	/**
+	 * This function provides the OS Install Date 
+	 * @return OS Install Date
+	 * @throws Exception
+	 */
+	public static String getOSInstallDate() throws Exception {
+		String res = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n" +
+					 "Set colOperatingSystems = objWMIService.ExecQuery(\"Select * from Win32_OperatingSystem\") \n " +
+					 "For Each objOperatingSystem in colOperatingSystems \n " +
+					 "Wscript.Echo WMIDateStringToDate(objOperatingSystem.InstallDate) \n Next \n " +
+					 "Function WMIDateStringToDate(dtmBootup) \n WMIDateStringToDate =  CDate(Mid(dtmBootup, 5, 2) &" +
+					 " \"/\" & Mid(dtmBootup, 7, 2) & \"/\" & Left(dtmBootup, 4) & \" \" & Mid (dtmBootup, 9, 2) & \":\" & " +
+					 " Mid(dtmBootup, 11, 2) & \":\" & Mid(dtmBootup, 13, 2)) \n End Function";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			res = result.trim();
+		input.close();
+		return res;
+	}
+
+	/**
+	 * This function provides the OS Name 
+	 * @return OS Name
+	 * @throws Exception
+	 */
+	public static String getOSName() throws Exception {
+		String res = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n " +
+					 "Set colOperatingSystems = objWMIService.ExecQuery(\"Select * from Win32_OperatingSystem\") \n " +
+					 "For Each objOperatingSystem in colOperatingSystems \n Wscript.Echo objOperatingSystem.Caption \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			res = result.trim();
+		input.close();
+		return res;
+	}
+
+	/**
+	 * This function provides the OS Version 
+	 * @return OS Version
+	 * @throws Exception
+	 */
+	public static String getOSVersion() throws Exception {
+		String res = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n " +
+				 "Set colOperatingSystems = objWMIService.ExecQuery(\"Select * from Win32_OperatingSystem\") \n " +
+				 "For Each objOperatingSystem in colOperatingSystems \n Wscript.Echo objOperatingSystem.Version \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			res = result.trim();
+		input.close();
+		return res;
+	}
+
+	/**
+	 * This function provides the OS Installation Directory 
+	 * @return OS Installation Directory
+	 * @throws Exception
+	 */
+	public static String getOSInstallationDirectory() throws Exception {
+		String res = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n " +
+					 "Set colOperatingSystems = objWMIService.ExecQuery(\"Select * from Win32_OperatingSystem\") \n " +
+					 "For Each objOperatingSystem in colOperatingSystems \n " +
+					 "Wscript.Echo objOperatingSystem.WindowsDirectory \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			res = result.trim();
+		input.close();
+		return res;
+	}
 }
