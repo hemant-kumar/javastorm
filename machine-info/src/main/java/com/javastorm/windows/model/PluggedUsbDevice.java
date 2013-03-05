@@ -15,18 +15,23 @@ public class PluggedUsbDevice
 	public String getDeviceId() {
 		return deviceId;
 	}
+
 	public void setDeviceId(String deviceId) {
 		this.deviceId = deviceId;
 	}
+	
 	public String getPnpDeviceId() {
 		return pnpDeviceId;
 	}
+	
 	public void setPnpDeviceId(String pnpDeviceId) {
 		this.pnpDeviceId = pnpDeviceId;
 	}
+	
 	public String getDescription() {
 		return description;
 	}
+	
 	public void setDescription(String description) {
 		this.description = description;
 	}

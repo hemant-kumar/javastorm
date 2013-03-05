@@ -19,42 +19,55 @@ public class NotWorkingDevice
 	public String getClassGUID() {
 		return classGUID;
 	}
+	
 	public void setClassGUID(String classGUID) {
 		this.classGUID = classGUID;
 	}
+	
 	public String getDescription() {
 		return description;
 	}
+	
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	public String getDeviceId() {
 		return deviceId;
 	}
+	
 	public void setDeviceId(String deviceId) {
 		this.deviceId = deviceId;
 	}
+	
 	public String getManufacturer() {
 		return manufacturer;
 	}
+	
 	public void setManufacturer(String manufacturer) {
 		this.manufacturer = manufacturer;
 	}
+	
 	public String getDeviceName() {
 		return deviceName;
 	}
+	
 	public void setDeviceName(String deviceName) {
 		this.deviceName = deviceName;
 	}
+	
 	public String getPnpDevice() {
 		return pnpDevice;
 	}
+	
 	public void setPnpDevice(String pnpDevice) {
 		this.pnpDevice = pnpDevice;
 	}
+	
 	public String getService() {
 		return service;
 	}
+	
 	public void setService(String service) {
 		this.service = service;
 	}

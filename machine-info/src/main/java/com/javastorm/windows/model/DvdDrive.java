@@ -15,18 +15,23 @@ public class DvdDrive
 	public String getDeviceId() {
 		return deviceId;
 	}
+	
 	public void setDeviceId(String deviceId) {
 		this.deviceId = deviceId;
 	}
+	
 	public String getDeviceDescription() {
 		return deviceDescription;
 	}
+	
 	public void setDeviceDescription(String deviceDescription) {
 		this.deviceDescription = deviceDescription;
 	}
+	
 	public String getDeviceName() {
 		return deviceName;
 	}
+	
 	public void setDeviceName(String deviceName) {
 		this.deviceName = deviceName;
 	}
