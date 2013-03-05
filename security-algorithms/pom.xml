@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javathunder.security-algorithms</groupId>
 	<artifactId>security-algorithms</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,4 +17,6 @@
 			</plugin>
 		</plugins>
 	</build>
+	<name>security-algorithms</name>
+	<description>This project is intended for providing simple implementations of various security algorithms like RSA, DES etc...</description>
 </project>

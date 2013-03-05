@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javathunder.machine-info</groupId>
 	<artifactId>machine-info</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<build>
 		<plugins>
 			<plugin>
@@ -17,4 +17,6 @@
 			</plugin>
 		</plugins>
 	</build>
+	<name>machine-info</name>
+	<description>This project is intended for providing information related to the machine like ip address, mac address etc...</description>
 </project>

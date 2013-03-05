@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javathunder.ImageScaler</groupId>
 	<artifactId>ImageScaler</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<build>
 		<plugins>
 			<plugin>
@@ -45,4 +45,6 @@
 			<version>1.6.7</version>
 		</dependency>
 	</dependencies>
+	<name>ImageScaler</name>
+	<description>This project is intended for providing an executable jar which is capable for scaling of images in terms of their height, width &amp; quality.</description>
 </project>

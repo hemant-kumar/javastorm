@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.javathunder.hadoop-starter</groupId>
 	<artifactId>hadoop-starter</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<build>
 		<plugins>
 			<plugin>
@@ -26,4 +26,6 @@
 		</dependency>
 	</dependencies>
 	
+	<name>hadoop-starter</name>
+	<description>This project is intended for providing basic programs for getting started with hadoop.</description>
 </project>
