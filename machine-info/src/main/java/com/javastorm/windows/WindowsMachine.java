@@ -509,4 +509,105 @@ public class WindowsMachine
 		br.close();
 		return list;
 	}
+	
+	/**
+	 * This function provides No of Tape Drives intalled 
+	 * @return No of Tape Drives
+	 * @throws Exception
+	 */
+	public static long getNoofTapeDrives() throws Exception {
+		String speed = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n " +
+					 "Set colItems = objWMIService.ExecQuery(\"Select * from Win32_TapeDrive\") \n " +
+					 "Wscript.Echo colItems.Count";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			speed = result.trim();
+		input.close();
+		return Long.parseLong(speed);
+	}
+
+	/**
+	 * This function provides the Domain Name 
+	 * @return Domain Name
+	 * @throws Exception
+	 */
+	public static String getDomainName() throws Exception {
+		String name = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n " +
+					 "Set colSettings = objWMIService.ExecQuery (\"Select * from Win32_ComputerSystem\") \n " +
+					 "For Each objComputer in colSettings \n Wscript.Echo objComputer.Domain \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			name = result.trim();
+		input.close();
+		return name;
+	}
+	
+	/**
+	 * This function provides the Domain Role 
+	 * @return Domain Role
+	 * @throws Exception
+	 */
+	public static String getDomainRole() throws Exception {
+		String name = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n " +
+					 "Set colComputers = objWMIService.ExecQuery(\"Select DomainRole from Win32_ComputerSystem\") \n " +
+					 "For Each objComputer in colComputers \n Select Case objComputer.DomainRole \n Case 0 \n " +
+					 "strComputerRole = \"Standalone Workstation\" \n Case 1 \n strComputerRole = \"Member Workstation\" \n " +
+					 "Case 2 \n strComputerRole = \"Standalone Server\" \n Case 3 \n strComputerRole = \"Member Server\" \n " +
+					 "Case 4 \n strComputerRole = \"Backup Domain Controller\" \n Case 5 \n " +
+					 "strComputerRole = \"Primary Domain Controller\" \n End Select \n Wscript.Echo strComputerRole \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			name = result.trim();
+		input.close();
+		return name;
+	}
+
+	/**
+	 * This function provides the Logged In User Name 
+	 * @return Logged In User Name
+	 * @throws Exception
+	 */
+	public static String getLoggedInUserName() throws Exception {
+		String name = "";
+		File file = File.createTempFile("javastorm",".vbs");
+		file.deleteOnExit();
+		FileWriter fileWriter = new FileWriter(file);
+		String str = "Set objWMIService = GetObject(\"winmgmts:{impersonationLevel=impersonate}!\\\\.\\root\\cimv2\") \n " +
+					 "Set colComputer = objWMIService.ExecQuery(\"Select * from Win32_ComputerSystem\") \n " +
+					 "For Each objComputer in colComputer \n WScript.Echo objComputer.UserName \n Next";
+		fileWriter.write(str);
+		fileWriter.close();
+		Process process = Runtime.getRuntime().exec("cscript //NoLogo " + file.getPath());
+		BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		String result = input.readLine();
+		if(result != null) 
+			name = result.trim();
+		input.close();
+		return name;
+	}
+
 }
