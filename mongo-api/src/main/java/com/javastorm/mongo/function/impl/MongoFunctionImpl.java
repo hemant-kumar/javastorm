@@ -13,6 +13,7 @@ import org.apache.commons.lang.StringUtils;
 import com.javastorm.common.exception.EmptyPropertyException;
 import com.javastorm.common.exception.MissingPropertyException;
 import com.javastorm.common.exception.MultipleFileFoundException;
+import com.javastorm.mongo.config.MongoConfiguration;
 import com.javastorm.mongo.domain.MongoEntity;
 import com.javastorm.mongo.domain.MongoQueryInfo;
 import com.javastorm.mongo.exception.MongoDeleteException;
@@ -47,7 +48,7 @@ public class MongoFunctionImpl implements MongoFunction
   private DB db_;
   
   /**
-   * It holds all properties which are configured in mongo.properties and mongoEntity-collection.mappings file
+   * It holds all properties which are configured in mongo.properties and pojo-collection.mappings file
    */
   private MongoProperties mongoProps_;
 
@@ -63,7 +64,15 @@ public class MongoFunctionImpl implements MongoFunction
 	if(!ignoreList_.contains("queryInfo"))
 	  ignoreList_.add("queryInfo");
   }
-  
+
+  public MongoFunctionImpl(MongoConfiguration config) throws MultipleFileFoundException,MongoFileNotFoundException,
+                                     IOException,MissingPropertyException,MongoException, EmptyPropertyException {
+    mongoProps_ = MongoProperties.getInstance(config);
+    db_ = SimpleMongoFactory.getInstance().getDB();
+    if(!ignoreList_.contains("queryInfo"))
+      ignoreList_.add("queryInfo");
+  }
+
   @Override
   public MongoEntity save(MongoEntity mongoEntity) throws MongoIdMissingException {
 	if(mongoEntity.get_id() == null)

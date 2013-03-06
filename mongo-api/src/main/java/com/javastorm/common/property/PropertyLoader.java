@@ -1,8 +1,7 @@
 package com.javastorm.common.property;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -30,22 +29,22 @@ public class PropertyLoader
 
   /**
    * This method parse the file and loads the properties in cache
-   * @param file : File to be parsed
+   * @param inputStream : Stream to be parsed
    * @throws IOException
    */
-  public static void loadAndStore(File file) throws IOException {
-    props_.load(new FileInputStream(file));
+  public static void loadAndStore(InputStream inputStream) throws IOException {
+    props_.load(inputStream);
   }
   
   /**
    * This method parse the file and loads the properties in a Map and return it
-   * @param file : File to be parsed
+   * @param inputStream : Stream to be parsed
    * @return Map containing all the properties of input file
    * @throws IOException
    */
-  public static Map<String,String> loadAndReturn(File file) throws IOException {
+  public static Map<String,String> loadAndReturn(InputStream inputStream) throws IOException {
     Properties properties_ = new Properties();
-	properties_.load(new FileInputStream(file));
+	properties_.load(inputStream);
 	Map<String,String> map_ = new HashMap<String,String>();
 	Set<Object> keySet = properties_.keySet();
 	for(Object object_ : keySet) {
