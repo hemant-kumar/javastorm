@@ -1,4 +1,4 @@
-package com.javastorm.windows;
+package com.javastorm.machineinfo.windows;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,12 +7,12 @@ import java.io.InputStreamReader;
 import java.net.InetAddress;
 import java.util.ArrayList;
 
-import com.javastorm.windows.model.ComputerTimeZone;
-import com.javastorm.windows.model.DiskDrive;
-import com.javastorm.windows.model.DvdDrive;
-import com.javastorm.windows.model.NotWorkingDevice;
-import com.javastorm.windows.model.PluggedUsbDevice;
-import com.javastorm.windows.model.PointingDevice;
+import com.javastorm.machineinfo.windows.model.ComputerTimeZone;
+import com.javastorm.machineinfo.windows.model.DiskDrive;
+import com.javastorm.machineinfo.windows.model.DvdDrive;
+import com.javastorm.machineinfo.windows.model.NotWorkingDevice;
+import com.javastorm.machineinfo.windows.model.PluggedUsbDevice;
+import com.javastorm.machineinfo.windows.model.PointingDevice;
 
 /**
  * This class is intended for providing information related to Windows Machine

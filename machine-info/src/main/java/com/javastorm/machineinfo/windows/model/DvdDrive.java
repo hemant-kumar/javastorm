@@ -1,4 +1,4 @@
-package com.javastorm.windows.model;
+package com.javastorm.machineinfo.windows.model;
 
 /**
  * This class is intended for providing information related to DvdDrive
