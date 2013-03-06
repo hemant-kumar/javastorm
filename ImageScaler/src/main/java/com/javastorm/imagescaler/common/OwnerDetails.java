@@ -1,4 +1,4 @@
-package com.javastorm.common;
+package com.javastorm.imagescaler.common;
 
 import java.awt.Image;
 import java.io.BufferedInputStream;

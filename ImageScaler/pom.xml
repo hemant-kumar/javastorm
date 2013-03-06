@@ -31,7 +31,7 @@
 					</descriptorRefs>
 					<archive>
 						<manifest>
-							<mainClass>com.javastorm.image.ImageScaler</mainClass>
+							<mainClass>com.javastorm.imagescaler.image.ImageScaler</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
