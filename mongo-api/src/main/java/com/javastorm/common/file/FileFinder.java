@@ -17,17 +17,17 @@ public class FileFinder
 {
   /**
    * This field contains the repository path where all the configuration files are lying.
-   * It gets its value from environment variable. 	
+   * It gets its value from System Properties 	
    */
   private static final String fileRepoPath_;
 	
   static {
-    fileRepoPath_ = System.getProperty("fileRepoPath");
+    fileRepoPath_ = System.getProperty("FILE_REPO");
   }
 
   /**
-   * This method is responsible for finding the specified file. If fileRepoPath is defined 
-   * then file will be searched in fileRepoPath and if it is not defined then file will be
+   * This method is responsible for finding the specified file. If FILE_REPO is defined 
+   * then file will be searched in FILE_REPO and if it is not defined then file will be
    * searched in class path.
    * @param fileName
    * @return File[]
@@ -35,7 +35,7 @@ public class FileFinder
   public static File[] findFiles(String fileName) {
     List<File> fileList_ = new ArrayList<File>();
     if(fileRepoPath_ != null)
-      listFiles(new File(fileRepoPath_),fileList_);
+      listFiles(new File(fileRepoPath_),fileName, fileList_);
     if(fileList_.size()==0) {
       try {
 	    Enumeration<URL> en_ = FileFinder.class.getClassLoader().getResources(fileName);
@@ -53,13 +53,15 @@ public class FileFinder
    * @param rootFile
    * @param fileList
    */
-  private static void listFiles(File rootFile, List<File> fileList) {
+  private static void listFiles(File rootFile, String filename, List<File> fileList) {
     File[] files_ = rootFile.listFiles();
-    for(File file : files_) {
-	  if(file.isFile())
-	    fileList.add(file);
-	  else
-		listFiles(file,fileList);
-	}
+    if(files_ != null) {
+      for(File file : files_) {
+        if(file.isFile() && file.getName().equalsIgnoreCase(filename))
+    	  fileList.add(file);
+        else
+          listFiles(file, filename, fileList);
+      }
+    }
   }
 }
