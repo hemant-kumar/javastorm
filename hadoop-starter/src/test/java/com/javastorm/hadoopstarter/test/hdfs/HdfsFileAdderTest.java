@@ -1,11 +1,11 @@
-package com.javastorm.test.hdfs;
+package com.javastorm.hadoopstarter.test.hdfs;
 
 
 import java.io.IOException;
 import java.util.Scanner;
 
-import com.javastorm.hdfs.common.PathResolver;
-import com.javastorm.hdfs.curd.HdfsFileAdder;
+import com.javastorm.hadoopstarter.hdfs.common.PathResolver;
+import com.javastorm.hadoopstarter.hdfs.curd.HdfsFileAdder;
 
 /**
  * This class is intended for depicting the usage of HdfsFileAdder 

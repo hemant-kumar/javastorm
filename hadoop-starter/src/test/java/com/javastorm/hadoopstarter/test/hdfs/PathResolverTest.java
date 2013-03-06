@@ -1,8 +1,8 @@
-package com.javastorm.test.hdfs;
+package com.javastorm.hadoopstarter.test.hdfs;
 
 import java.util.Scanner;
 
-import com.javastorm.hdfs.common.PathResolver;
+import com.javastorm.hadoopstarter.hdfs.common.PathResolver;
 
 /**
  * This class is intended for depicting the usage of PathResolver  

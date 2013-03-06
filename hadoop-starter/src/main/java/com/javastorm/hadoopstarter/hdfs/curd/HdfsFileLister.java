@@ -1,41 +1,48 @@
-package com.javastorm.hdfs.curd;
+package com.javastorm.hadoopstarter.hdfs.curd;
 
 
 import java.io.IOException;
 import java.util.Scanner;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 
-import com.javastorm.hdfs.common.PathResolver;
-import com.javastorm.hdfs.common.PropertyLoader;
+import com.javastorm.hadoopstarter.hdfs.common.PathResolver;
+import com.javastorm.hadoopstarter.hdfs.common.PropertyLoader;
 
 /**
- * This class is intended for creating a new directory in HDFS 
+ * This class is intended for listing all files in the specified HDFS dir 
  * 
  * @author Hemant Kumar
  * @version 1.0 Dated: 01/03/2013
  */
-public class HdfsDirectoryCreator {
+public class HdfsFileLister 
+{
+	private FileSystem fileSystem;
 
-	FileSystem fileSystem;
-
-	public HdfsDirectoryCreator() throws IOException {
+	public HdfsFileLister() throws IOException {
 		Configuration conf = new Configuration();
 		conf.addResource(new Path(PropertyLoader.getProperty("core-site-xml-path")));
 		conf.addResource(new Path(PropertyLoader.getProperty("hdfs-site-xml-path")));
 		fileSystem = FileSystem.get(conf);
 	}
 
-	public void createDirectory(String dir) throws IOException {
-		Path path = new Path(dir);
-		if (fileSystem.exists(path)) {
-			System.out.println("Dir " + dir + " already not exists");
-			return;
+	public void list(String path) throws IOException {
+		Path dirPath = new Path(path);
+		FileStatus[] fileStatus = fileSystem.listStatus(dirPath);
+		if(fileStatus != null) {
+			for (FileStatus fs : fileStatus) {
+				path = dirPath.toString() + "/" + fs.getPath().getName();
+				if(fs.isDir()) {
+					list(path);
+				}
+				else {
+					System.out.println(path);
+				}
+			}
 		}
-		fileSystem.mkdirs(path);
-		fileSystem.close();
 	}
 
 	@Override
@@ -49,7 +56,6 @@ public class HdfsDirectoryCreator {
     	Scanner scanner = new Scanner(System.in);
     	String dir = scanner.next();
     	dir = PathResolver.resolveHdfsPath(dir);
-		new HdfsDirectoryCreator().createDirectory(dir);
-		System.out.println("Done");
+		new HdfsFileLister().list(dir);
 	}
 }

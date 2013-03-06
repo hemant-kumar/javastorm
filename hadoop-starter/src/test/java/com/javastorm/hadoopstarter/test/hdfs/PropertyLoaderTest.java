@@ -1,6 +1,6 @@
-package com.javastorm.test.hdfs;
+package com.javastorm.hadoopstarter.test.hdfs;
 
-import com.javastorm.hdfs.common.PropertyLoader;
+import com.javastorm.hadoopstarter.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for depicting the usage of PropertyLoader

@@ -1,4 +1,4 @@
-package com.javastorm.hdfs.common;
+package com.javastorm.hadoopstarter.hdfs.common;
 
 /**
  * This class is intended for resolving the hdfs path to fully qualified hdfs path 

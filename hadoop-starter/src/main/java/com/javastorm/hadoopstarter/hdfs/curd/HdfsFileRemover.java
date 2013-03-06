@@ -1,4 +1,4 @@
-package com.javastorm.hdfs.curd;
+package com.javastorm.hadoopstarter.hdfs.curd;
 
 
 import java.io.IOException;
@@ -8,8 +8,8 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 
-import com.javastorm.hdfs.common.PathResolver;
-import com.javastorm.hdfs.common.PropertyLoader;
+import com.javastorm.hadoopstarter.hdfs.common.PathResolver;
+import com.javastorm.hadoopstarter.hdfs.common.PropertyLoader;
 
 /**
  * This class is intended for removing a file from HDFS 
