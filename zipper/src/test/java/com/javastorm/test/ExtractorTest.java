@@ -3,7 +3,7 @@ package com.javastorm.test;
 import java.io.File;
 import java.util.Scanner;
 
-import com.javastorm.zip.Extractor;
+import com.javastorm.zipper.zip.Extractor;
 
 /**
  * This class is intended for depicting the usage of Extractor class

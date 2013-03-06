@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-import com.javastorm.common.FileListGetter;
+import com.javastorm.zipper.common.FileListGetter;
 
 /**
  * This class is intended for depicting the usage of FileListGetter class

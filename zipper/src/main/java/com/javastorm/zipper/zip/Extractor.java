@@ -1,4 +1,4 @@
-package com.javastorm.zip;
+package com.javastorm.zipper.zip;
 
 import java.io.File;
 import java.io.FileInputStream;

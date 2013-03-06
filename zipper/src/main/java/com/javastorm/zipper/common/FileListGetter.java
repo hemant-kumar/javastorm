@@ -1,4 +1,4 @@
-package com.javastorm.common;
+package com.javastorm.zipper.common;
 
 import java.io.File;
 import java.util.ArrayList;
