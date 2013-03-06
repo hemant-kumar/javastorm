@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 
-import com.javastorm.common.exception.EmptyPropertyException;
-import com.javastorm.common.exception.MissingPropertyException;
-import com.javastorm.common.exception.MultipleFileFoundException;
 import com.javastorm.helper.TestEntity;
-import com.javastorm.mongo.exception.MongoFileNotFoundException;
-import com.javastorm.mongo.exception.MongoIdMissingException;
-import com.javastorm.mongo.function.impl.MongoFunctionImpl;
-import com.javastorm.mongo.function.spi.MongoFunction;
+import com.javastorm.mongoapi.common.exception.EmptyPropertyException;
+import com.javastorm.mongoapi.common.exception.MissingPropertyException;
+import com.javastorm.mongoapi.common.exception.MultipleFileFoundException;
+import com.javastorm.mongoapi.mongo.exception.MongoFileNotFoundException;
+import com.javastorm.mongoapi.mongo.exception.MongoIdMissingException;
+import com.javastorm.mongoapi.mongo.function.impl.MongoFunctionImpl;
+import com.javastorm.mongoapi.mongo.function.spi.MongoFunction;
 import com.mongodb.MongoException;
 
 /**

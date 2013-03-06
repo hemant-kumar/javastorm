@@ -2,7 +2,7 @@ package com.javastorm.helper;
 
 import java.util.ArrayList;
 
-import com.javastorm.mongo.domain.MongoEntity;
+import com.javastorm.mongoapi.mongo.domain.MongoEntity;
 
 /**
  * This TestEntity class is extending MongoEntity and also defining its business requirements fields
