@@ -24,28 +24,28 @@ public class TweetConfig implements InitializingBean
 	private static long pollTimeOut_;
 	private Configuration configuration_;
 
-	public void setoAuthConsumerKey(String oAuthConsumerKey_) {
-		this.oAuthConsumerKey_ = oAuthConsumerKey_;
+	public void setoAuthConsumerKey(String oAuthConsumerKey) {
+		this.oAuthConsumerKey_ = oAuthConsumerKey;
 	}
 
-	public void setoAuthConsumerSecret(String oAuthConsumerSecret_) {
-		this.oAuthConsumerSecret_ = oAuthConsumerSecret_;
+	public void setoAuthConsumerSecret(String oAuthConsumerSecret) {
+		this.oAuthConsumerSecret_ = oAuthConsumerSecret;
 	}
 
-	public void setoAuthAccessToken(String oAuthAccessToken_) {
-		this.oAuthAccessToken_ = oAuthAccessToken_;
+	public void setoAuthAccessToken(String oAuthAccessToken) {
+		this.oAuthAccessToken_ = oAuthAccessToken;
 	}
 
-	public void setoAuthAccessTokenSecret(String oAuthAccessTokenSecret_) {
-		this.oAuthAccessTokenSecret_ = oAuthAccessTokenSecret_;
+	public void setoAuthAccessTokenSecret(String oAuthAccessTokenSecret) {
+		this.oAuthAccessTokenSecret_ = oAuthAccessTokenSecret;
 	}
 
 	public static long getPollTimeOut() {
 		return pollTimeOut_ > 0 ? pollTimeOut_ : 1800;
 	}
 
-	public static void setPollTimeOut(long pollTimeOut_) {
-		TweetConfig.pollTimeOut_ = pollTimeOut_;
+	public static void setPollTimeOut(long pollTimeOut) {
+		TweetConfig.pollTimeOut_ = pollTimeOut;
 	}
 
 	public TwitterStream getTwitterStream() {
