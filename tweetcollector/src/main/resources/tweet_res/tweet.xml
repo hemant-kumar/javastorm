@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context" 
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+						   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						   http://www.springframework.org/schema/context 
+						   http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:annotation-config /> 
+	
+	<context:property-placeholder location="classpath:tweet_res/tweet.properties" />
+	 
+	<bean id="tweetConfig" class="com.javastorm.tweetcollector.config.TweetConfig" >
+		<property name="oAuthConsumerKey" value="${com.javastorm.tweetcollector.oAuthConsumerKey}" />
+		<property name="oAuthConsumerSecret" value="${com.javastorm.tweetcollector.oAuthConsumerSecret}" />
+		<property name="oAuthAccessToken" value="${com.javastorm.tweetcollector.oAuthAccessToken}" />
+		<property name="oAuthAccessTokenSecret" value="${com.javastorm.tweetcollector.oAuthAccessTokenSecret}" />
+	</bean>
+
+	<bean id="tweetSearch" class="com.javastorm.tweetcollector.producer.TweetSearch" />
+		
+	<bean id="tweetConsumer" class="com.javastorm.tweetcollector.consumer.MongoTweetConsumer" init-method="init" >
+		<property name="mongoPropsFilePath" value="classpath:mongo_res/mongo.properties" />
+		<property name="pojoCollMapFilePath" value="classpath:mongo_res/pojo-collection.mappings" />
+	</bean>
+
+	<bean id="tweetProducer" class="com.javastorm.tweetcollector.producer.TweetProducer" />
+	
+	<bean id="sendMessage" class="com.javastorm.tweetcollector.send.SendMessage" />
+</beans>
