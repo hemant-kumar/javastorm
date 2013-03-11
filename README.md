@@ -28,3 +28,7 @@ It's an api for tweet streaming, filtering, sending etc..
 **zipper**
 
 It provides mechanism for zipping & unzipping of *.zip files.
+
+**excel-api**
+
+This project is intended for handling various csv formats.
