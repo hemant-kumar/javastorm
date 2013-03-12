@@ -19,4 +19,11 @@
 	<name>excel-api</name>
 	<artifactId>excel-api</artifactId>
 	<description>This project is intended for handling various csv formats.</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.9</version>
+		</dependency>
+	</dependencies>
 </project>
