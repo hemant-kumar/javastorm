@@ -45,27 +45,59 @@ public interface Reader
 	/**
 	 * <b>CSV</b>  : Read whole file using specified delimiter.<br>
 	 * @param file
-	 * @param ch
+	 * @param delimiter
 	 * @return String[][]
 	 * @throws Exception
 	 */
-	public String[][] read(File file, char ch) throws Exception;
+	public String[][] read(File file, char delimiter) throws Exception;
 
 	/**
 	 * <b>CSV</b>  : Read whole file using specified delimiter.<br>
 	 * @param filepath
+	 * @param delimiter
 	 * @return String[][]
 	 * @throws Exception
 	 */
-	public String[][] read(String filepath, char ch) throws Exception;
+	public String[][] read(String filepath, char delimiter) throws Exception;
 
 	/**
 	 * <b>CSV</b>  : Read whole file using specified delimiter.<br>
 	 * @param stream
+	 * @param delimiter
 	 * @return String[][]
 	 * @throws Exception
 	 */
-	public String[][] read(InputStream stream, char ch) throws Exception;
+	public String[][] read(InputStream stream, char delimiter) throws Exception;
+
+	/**
+	 * <b>CSV</b>  : Read whole file using specified delimiter & row delimiter.<br>
+	 * @param file
+	 * @param delimiter
+	 * @param rowdelimiter
+	 * @return String[][]
+	 * @throws Exception
+	 */
+	public String[][] read(File file, char delimiter, char rowdelimiter) throws Exception;
+
+	/**
+	 * <b>CSV</b>  : Read whole file using specified delimiter & row delimiter.<br>
+	 * @param filepath
+	 * @param delimiter
+	 * @param rowdelimiter
+	 * @return String[][]
+	 * @throws Exception
+	 */
+	public String[][] read(String filepath, char delimiter, char rowdelimiter) throws Exception;
+
+	/**
+	 * <b>CSV</b>  : Read whole file using specified delimiter & row delimiter.<br>
+	 * @param stream
+	 * @param delimiter
+	 * @param rowdelimiter
+	 * @return String[][]
+	 * @throws Exception
+	 */
+	public String[][] read(InputStream stream, char delimiter, char rowdelimiter) throws Exception;
 
 	/**
 	 * <b>XLS</b> : Read all sheets.<br>
