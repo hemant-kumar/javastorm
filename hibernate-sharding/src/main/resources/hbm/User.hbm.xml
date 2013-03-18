@@ -1,0 +1,12 @@
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.javastorm.hibernatesharding.entity">
+    <class name="User" table="USERS">
+        <id name="userid" column="USER_ID" type="java.util.UUID">
+          <generator class="com.javastorm.hibernatesharding.generator.IdGenerator" />
+        </id>
+        <property name="name" column="USER_NAME" />
+        <property name="gender" column="USER_GENDER" />
+        <property name="country" column="USER_COUNTRY" />
+	</class>
+</hibernate-mapping>
