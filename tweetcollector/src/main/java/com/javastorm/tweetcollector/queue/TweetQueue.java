@@ -7,7 +7,7 @@ import twitter4j.Status;
 
 /**
  * The TweetQueue class is intended for providing a queue for holding the tweets.
- * Max limit: 3200 .   
+ * Max limit: 2048 .   
  * 
  * @author Hemant Kumar
  * @version 1.0 Dated: 10/03/2013

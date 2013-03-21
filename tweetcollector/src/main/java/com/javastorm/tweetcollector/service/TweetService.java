@@ -20,17 +20,18 @@ import com.javastorm.tweetcollector.producer.TweetProducer;
 public class TweetService 
 {
 	public static void main(String[] args) throws Exception {
-		ApplicationContext appContext =	new ClassPathXmlApplicationContext(new String[] { "tweet_res/tweet.xml" });
+		@SuppressWarnings("resource")
+		ApplicationContext context = new ClassPathXmlApplicationContext(new String[] { "tweet_res/tweet.xml" });
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Enter no of consumers to run");
 		String line = br.readLine();
 		int no = Integer.parseInt(line);
 		ExecutorService executor = Executors.newFixedThreadPool(no);
-		TweetConsumer tweetConsumer = (TweetConsumer) appContext.getBean("tweetConsumer");
+		TweetConsumer tweetConsumer = (TweetConsumer) context.getBean("tweetConsumer");
 		for(int i=0; i<no; i++) {
 			executor.submit(tweetConsumer);
 		}
-        TweetProducer tweetProducer = (TweetProducer) appContext.getBean("tweetProducer");
+        TweetProducer tweetProducer = (TweetProducer) context.getBean("tweetProducer");
         tweetProducer.init();
         System.out.println("Press 0 to exit");
         line = br.readLine();
