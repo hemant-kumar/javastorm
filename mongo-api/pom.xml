@@ -4,7 +4,7 @@
 	<groupId>com.javastorm.mongo-api</groupId>
 	<artifactId>mongo-api</artifactId>
 	<version>1.0</version>
-	<name>MongoAPI</name>
+	<name>mongo-api</name>
 	<build>
 		<plugins>
 			<plugin>
