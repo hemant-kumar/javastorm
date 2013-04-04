@@ -50,7 +50,7 @@ public class MongoFunctionUpdateTest extends TestCase {
     MongoQueryInfo updateQueryInfo_ = new MongoQueryInfo();
     updateQueryInfo_.setQueryString("{ \"$set\" : { \"info\" : \"Testing for update\"}}");
     updateEntity_.setQueryInfo(updateQueryInfo_);
-    mongoFunction_.update(findEntity_,updateEntity_);
+    mongoFunction_.update(findEntity_,updateEntity_,true,true);
 	resultList_ = (List) mongoFunction_.find(findEntity_);
   	TestEntity updatedEntity_ = (TestEntity)resultList_.get(0);
     System.out.println("Updated value --> " + updatedEntity_.getInfo());

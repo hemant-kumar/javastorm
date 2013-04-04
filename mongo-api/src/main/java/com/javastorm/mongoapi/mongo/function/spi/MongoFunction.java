@@ -1,6 +1,6 @@
 package com.javastorm.mongoapi.mongo.function.spi;
 
-import java.util.Collection;
+import java.util.List;
 
 import com.javastorm.mongoapi.mongo.domain.MongoEntity;
 import com.javastorm.mongoapi.mongo.exception.MongoDeleteException;
@@ -31,7 +31,7 @@ public interface MongoFunction {
    * @return Collection<Object>
    */
   @SuppressWarnings("rawtypes")
-  public Collection find(MongoEntity mongoEntity);
+  public List find(MongoEntity mongoEntity);
 
   /**
    * This function is responsible for deleting any document from a collection  
@@ -44,8 +44,10 @@ public interface MongoFunction {
    * This function is responsible for updating any document in a collection 
    * @param findmongoEntity
    * @param updatemongoEntity
+   * @param upsert
+   * @param multi
    * @return int
    * @throws MongoUpdateException
    */
-  public int update(MongoEntity findMongoEntity, MongoEntity updateMongoEntity) throws MongoUpdateException;
+  public int update(MongoEntity findMongoEntity, MongoEntity updateMongoEntity, boolean upsert, boolean multi) throws MongoUpdateException;
 }

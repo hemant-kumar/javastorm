@@ -2,9 +2,9 @@ package com.javastorm.mongoapi.mongo.function.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import net.sf.json.JSONObject;
 
@@ -42,6 +42,8 @@ import com.mongodb.util.JSON;
 public class MongoFunctionImpl implements MongoFunction 
 {
 
+  protected final Logger LOGGER = Logger.getLogger(MongoFunctionImpl.class.getName());
+  
   /**
    * It holds the MongoDB instance
    */
@@ -85,7 +87,7 @@ public class MongoFunctionImpl implements MongoFunction
 
   @SuppressWarnings("all")
   @Override
-  public Collection find(MongoEntity mongoEntity) {
+  public List find(MongoEntity mongoEntity) {
 	List resultList_ = new ArrayList();
 	DBObject selectFields_ = new BasicDBObject();
 	MongoQueryInfo queryInfo_ = mongoEntity.getQueryInfo();
@@ -131,13 +133,15 @@ public class MongoFunctionImpl implements MongoFunction
   }
 
   @Override
-  public int update(MongoEntity findmongoEntity, MongoEntity updatemongoEntity) throws MongoUpdateException {
+  public int update(MongoEntity findmongoEntity, MongoEntity updatemongoEntity, boolean upsert, boolean multi) throws MongoUpdateException {
 	if(!mongoProps_.getColletion(findmongoEntity.getClass().getName()).equals(
 		mongoProps_.getColletion(updatemongoEntity.getClass().getName())))
 	  throw new MongoUpdateException("Different collection for find and update mongoEntity");
 	try {
+		LOGGER.info("Find Info: " + parseQueryInfo(findmongoEntity.getQueryInfo()));
+		LOGGER.info("Update Info: " + parseQueryInfo(updatemongoEntity.getQueryInfo()));
  	  getSuitableCollection(findmongoEntity.getClass()).update(parseQueryInfo(findmongoEntity.getQueryInfo()),
-						  parseQueryInfo(updatemongoEntity.getQueryInfo()));
+						  parseQueryInfo(updatemongoEntity.getQueryInfo()), upsert, multi);
 	}
 	catch(Exception e) {
 	  throw new MongoUpdateException(e.getMessage());
